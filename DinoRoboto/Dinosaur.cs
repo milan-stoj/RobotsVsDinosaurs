@@ -12,7 +12,7 @@ namespace DinoRoboto
         public string type;
         public int health;
         public int powerLevel;
-        string[] attackType;
+        AttackType[] attacks;
         public string herdTitle;
 
         public Dinosaur(string herdTitle)
@@ -24,16 +24,19 @@ namespace DinoRoboto
                 case "Hypsilophodon":
                     health = 75;
                     powerLevel = 15;
+                    attacks = new AttackType[3] { new AttackType("Tail Whip", 15, 7), new AttackType("Base Attack", 5, 2), new AttackType("Defense", 0, 0)};
                     break;
 
                 case "Triceratops":
                     health = 150;
                     powerLevel = 3;
+                    attacks = new AttackType[3] { new AttackType("Horns", 5, 3), new AttackType("Base Attack", 5, 1), new AttackType("Defense", 0, 0) };
                     break;
 
                 case "Tyrannosaur":
                     health = 100;
                     powerLevel = 10;
+                    attacks = new AttackType[3] { new AttackType("Bite", 10, 5), new AttackType("Slash", 5, 2), new AttackType("Defense", 0, 0) };
                     break;
             }
         }
@@ -59,5 +62,30 @@ namespace DinoRoboto
                 }
             }
         }
+        public void AttackRobot(Fleet roboFleet, AttackType attack)
+        {
+            Random random = new Random();
+            int index = random.Next(roboFleet.robotFleet.Count());
+            roboFleet.robotFleet[index].health -= attack.attackPower;
+            powerLevel -= attack.powerCost;
+        }
+
+        public AttackType SelectAttack(List<AttackType> attacks)
+        {
+            int bestAttackPower = 0;
+            int bestIndex = 0;
+            for (int i = 0; i < attacks.Count(); i++)
+            {
+                int testAttackPower = attacks[i].attackPower;
+                int testAttackCost = attacks[i].powerCost;
+                if (testAttackCost <= powerLevel && testAttackPower >= bestAttackPower)
+                {
+                    bestIndex = i;
+                    bestAttackPower = testAttackPower;
+                }
+            }
+            return attacks[bestIndex];
+        }
+
     }
 }

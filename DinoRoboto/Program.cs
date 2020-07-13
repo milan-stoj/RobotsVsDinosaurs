@@ -11,7 +11,7 @@ namespace DinoRoboto
         static void Main(string[] args)
         {
             Title title = new Title();
-            title.PrintTitle();
+            Console.WriteLine(title.title);
             Console.WriteLine("Press enter to start a new battle!");
             Console.ReadLine();
             

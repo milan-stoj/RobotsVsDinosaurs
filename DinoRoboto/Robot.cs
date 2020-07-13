@@ -9,6 +9,7 @@ namespace DinoRoboto
     class Robot
     {
         // Init member variables
+        Random random = new Random();
         public string name;
         public int health;
         public int powerLevel;
@@ -38,6 +39,9 @@ namespace DinoRoboto
             }
         }
 
+        
+        // Returns a robot name value, that is then switch-cased
+        // in the constructor to assign respective health/power-levels.
         public string SelectRobotType()
         {
             Console.Write($"Please select the type of robot for {fleetTitle}: ");
@@ -60,12 +64,13 @@ namespace DinoRoboto
             }
         }
 
-         public void AttackDino(Herd dinoHerd, Weapon weapon)
+        // Targets a random dino from the herd, and reduces dino health
+        // by weapon damage. Attacker power level reduced by weapon 
+        // power cost.
+        public void AttackDino(Herd dinoHerd, Weapon weapon)
         {
-            dinoHerd.GetDinoHerd().Count();
-            Random random = new Random();
-            int index = random.Next(dinoHerd.GetDinoHerd().Count());
-            dinoHerd.GetDinoHerd()[index].health -= weapon.attackPower;
+            int index = random.Next(dinoHerd.dinoHerd.Count());
+            dinoHerd.dinoHerd[index].health -= weapon.attackPower;
             powerLevel -= weapon.powerCost;
         }
     }

@@ -9,7 +9,7 @@ namespace DinoRoboto
     class Herd
     {
         // Init member variables
-        List<Dinosaur> dinoHerd;
+        public List<Dinosaur> dinoHerd;
 
         public Herd()
         {
@@ -27,11 +27,6 @@ namespace DinoRoboto
             {
                 Console.WriteLine($"{dino.herdTitle}\n{dino.type}\n");
             }
-        }
-
-        public List<Dinosaur> GetDinoHerd()
-        {
-            return dinoHerd;
         }
     }
 }

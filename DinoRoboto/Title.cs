@@ -8,7 +8,7 @@ namespace DinoRoboto
 {
     class Title
     {
-        string title;
+        public string title;
 
         public Title()
         {
@@ -33,11 +33,6 @@ namespace DinoRoboto
         | |\ | (_) | |_) | (_) | |_\__ \     \ V /\__ \    | |/ /| | | | | (_) \__ | (_| | |_| | |  \__ \
         \_| \_\___/|_.__/ \___/ \__|___/      \_/ |___/    |___/ |_|_| |_|\___/|___/\__,_|\__,_|_|  |___/
         ";
-        }
-
-        public void PrintTitle()
-        {
-            Console.WriteLine(title);
         }
     }
 }

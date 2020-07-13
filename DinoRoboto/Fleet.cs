@@ -9,7 +9,7 @@ namespace DinoRoboto
     class Fleet
     {
         // Init member variables
-        List<Robot> robotFleet;
+        public List<Robot> robotFleet;
 
         public Fleet()
         {
