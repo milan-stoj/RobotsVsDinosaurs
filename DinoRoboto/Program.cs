@@ -12,12 +12,11 @@ namespace DinoRoboto
         {
             Title title = new Title();
             title.PrintTitle();
+            Console.WriteLine("Press enter to start a new battle!");
             Console.ReadLine();
-
-            Herd dinoHerd = new Herd();
-            Fleet robotFleet = new Fleet();
-            BattleField NewBattlefield = new BattleField(dinoHerd, robotFleet);
-
+            
+            BattleField NewBattlefield = new BattleField();
+            Console.ReadLine();
             // StartBattle(NewBattleField);
         }
     }
