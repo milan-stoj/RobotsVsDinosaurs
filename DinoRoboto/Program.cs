@@ -10,7 +10,11 @@ namespace DinoRoboto
     {
         static void Main(string[] args)
         {
+            Herd dinoHerd = new Herd();
+            Fleet robotFleet = new Fleet();
+            BattleField NewBattlefield = new BattleField(dinoHerd, robotFleet);
 
+            // StartBattle(NewBattleField);
         }
     }
 }

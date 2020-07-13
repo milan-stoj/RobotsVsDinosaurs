@@ -8,5 +8,9 @@ namespace DinoRoboto
 {
     class Dinosaur
     {
+        // Init member variables
+        string type;
+        int health;
+        int powerLevel;
     }
 }

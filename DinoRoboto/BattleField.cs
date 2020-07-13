@@ -8,5 +8,13 @@ namespace DinoRoboto
 {
     class BattleField
     {
+        
+        //Constructor
+        public BattleField(Herd dinoHerd, Fleet robotFleet)
+        {
+
+        }
+
+
     }
 }

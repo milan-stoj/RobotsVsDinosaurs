@@ -8,5 +8,10 @@ namespace DinoRoboto
 {
     class Robot
     {
+        // Init member variables
+        string name;
+        int health;
+        int powerLevel;
+        Weapon weapon;
     }
 }

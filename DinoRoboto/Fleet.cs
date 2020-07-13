@@ -8,5 +8,12 @@ namespace DinoRoboto
 {
     class Fleet
     {
+        // Init member variables
+        Robot[] robotFleet;
+
+        public Fleet()
+        {
+
+        }
     }
 }

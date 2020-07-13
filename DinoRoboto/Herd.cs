@@ -8,5 +8,12 @@ namespace DinoRoboto
 {
     class Herd
     {
+        // Init member variables
+        Dinosaur[] dinoFleet;
+
+        public Herd()
+        {
+
+        }
     }
 }
