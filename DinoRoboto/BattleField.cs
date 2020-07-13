@@ -12,7 +12,8 @@ namespace DinoRoboto
         //Constructor
         public BattleField(Herd dinoHerd, Fleet robotFleet)
         {
-
+            dinoHerd = new Herd();
+            robotFleet = new Fleet();
         }
 
 
