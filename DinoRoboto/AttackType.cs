@@ -8,7 +8,7 @@ namespace DinoRoboto
 {
     class AttackType
     {
-        string type;
+        public string type;
         public int attackPower;
         public int powerCost;
 

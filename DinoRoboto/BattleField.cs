@@ -23,6 +23,36 @@ namespace DinoRoboto
             robotFleet.PrintFleetInfo();
         }
 
+        public void StartBattle()
+        {
+            string winner;
+            bool victor = false;
+            while(victor == false)
+            {
+                Console.Clear();
+                dinoHerd.PrintHerdInfo();
+                robotFleet.PrintFleetInfo();
+                Console.WriteLine("Press enter to evaulate round");
+                Console.ReadLine();
+                AttackRound(dinoHerd, robotFleet);
+                Console.ReadLine();
+                if(dinoHerd.dinoHerd.Count() == 0)
+                {
+                    winner = "ROBOTS WIN!!!";
+                    Console.WriteLine(winner);
+                    Console.ReadLine();
+                    victor = true;
+                }
+                else if(robotFleet.robotFleet.Count() == 0)
+                {
+                    winner = "DINOS WIN!!!";
+                    Console.WriteLine(winner);
+                    Console.ReadLine();
+                    victor = true;
+                }
+            }
+        }
+
         private void PrintDinoTypes()
         {
             Console.Clear();
@@ -131,6 +161,20 @@ namespace DinoRoboto
                                    Power Level: 10
 ";
             Console.WriteLine(type3);
+        }
+
+        public void AttackRound(Herd dinoHerd, Fleet robotFleet)
+        {
+            foreach (Dinosaur dino in dinoHerd.dinoHerd)
+            {
+                
+                dino.AttackRobot(robotFleet, dino.SelectAttack());
+            }
+
+            foreach (Robot robo in robotFleet.robotFleet)
+            {
+                robo.AttackDino(dinoHerd, robo.SelectWeapon());
+            }
         }
     }
 }

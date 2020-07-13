@@ -13,11 +13,13 @@ namespace DinoRoboto
         public string name;
         public int health;
         public int powerLevel;
+        public int powerRegen;
         public string fleetTitle;
-        Weapon weapon;
+        Weapon[] weapons;
 
         public Robot(string fleetTitle)
         {
+            weapons = new Weapon[3] { new Weapon("Laser Pistol", 10, 5), new Weapon("Laser Cannon", 15, 5), new Weapon("Defense", 0, 0) };
             this.fleetTitle = fleetTitle;
             name = SelectRobotType();
             switch (name)
@@ -25,16 +27,19 @@ namespace DinoRoboto
                 case "PLS-15":
                     health = 75;
                     powerLevel = 15;
+                    powerRegen = 5;
                     break;
 
                 case "DS-125":
                     health = 150;
                     powerLevel = 3;
+                    powerRegen = 1;
                     break;
 
                 case "APH-100":
                     health = 100;
                     powerLevel = 10;
+                    powerRegen = 2;
                     break;
             }
         }
@@ -71,7 +76,31 @@ namespace DinoRoboto
         {
             int index = random.Next(dinoHerd.dinoHerd.Count());
             dinoHerd.dinoHerd[index].health -= weapon.attackPower;
+            Console.WriteLine($"{fleetTitle} uses {weapon.type} against {dinoHerd.dinoHerd[index].herdTitle} for {weapon.attackPower} damage!");
+            if (dinoHerd.dinoHerd[index].health <= 0)
+            {
+                Console.WriteLine($"-----{dinoHerd.dinoHerd[index].herdTitle} has been eliminated!!!-----");
+                dinoHerd.dinoHerd.RemoveAt(index);
+            }
             powerLevel -= weapon.powerCost;
+            powerLevel += powerRegen;
+        }
+
+        public Weapon SelectWeapon()
+        {
+            int bestAttackPower = 0;
+            int bestIndex = 0;
+            for (int i = 0; i < weapons.Count(); i++)
+            {
+                int testAttackPower = weapons[i].attackPower;
+                int testAttackCost = weapons[i].powerCost;
+                if (testAttackCost <= powerLevel && testAttackPower >= bestAttackPower)
+                {
+                    bestIndex = i;
+                    bestAttackPower = testAttackPower;
+                }
+            }
+            return weapons[bestIndex];
         }
     }
 }

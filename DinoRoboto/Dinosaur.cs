@@ -12,6 +12,8 @@ namespace DinoRoboto
         public string type;
         public int health;
         public int powerLevel;
+        public int powerRegen;
+        Random random = new Random();
         AttackType[] attacks;
         public string herdTitle;
 
@@ -25,18 +27,21 @@ namespace DinoRoboto
                     health = 75;
                     powerLevel = 15;
                     attacks = new AttackType[3] { new AttackType("Tail Whip", 15, 7), new AttackType("Base Attack", 5, 2), new AttackType("Defense", 0, 0)};
+                    powerRegen = 5;
                     break;
 
                 case "Triceratops":
                     health = 150;
                     powerLevel = 3;
                     attacks = new AttackType[3] { new AttackType("Horns", 5, 3), new AttackType("Base Attack", 5, 1), new AttackType("Defense", 0, 0) };
+                    powerRegen = 1;
                     break;
 
                 case "Tyrannosaur":
                     health = 100;
                     powerLevel = 10;
                     attacks = new AttackType[3] { new AttackType("Bite", 10, 5), new AttackType("Slash", 5, 2), new AttackType("Defense", 0, 0) };
+                    powerRegen = 2;
                     break;
             }
         }
@@ -64,13 +69,19 @@ namespace DinoRoboto
         }
         public void AttackRobot(Fleet roboFleet, AttackType attack)
         {
-            Random random = new Random();
             int index = random.Next(roboFleet.robotFleet.Count());
             roboFleet.robotFleet[index].health -= attack.attackPower;
+            Console.WriteLine($"{herdTitle} uses {attack.type} against {roboFleet.robotFleet[index].fleetTitle} for {attack.attackPower} damage!");
+            if (roboFleet.robotFleet[index].health <= 0)
+            {
+                Console.WriteLine($"-----{roboFleet.robotFleet[index].fleetTitle} has been eliminated!!!-----");
+                roboFleet.robotFleet.RemoveAt(index);
+            }
             powerLevel -= attack.powerCost;
+            powerLevel += powerRegen;
         }
 
-        public AttackType SelectAttack(List<AttackType> attacks)
+        public AttackType SelectAttack()
         {
             int bestAttackPower = 0;
             int bestIndex = 0;

@@ -16,8 +16,9 @@ namespace DinoRoboto
             Console.ReadLine();
             
             BattleField NewBattlefield = new BattleField();
+
+            NewBattlefield.StartBattle();
             Console.ReadLine();
-            // StartBattle(NewBattleField);
         }
     }
 }

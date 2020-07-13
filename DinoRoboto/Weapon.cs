@@ -8,14 +8,16 @@ namespace DinoRoboto
 {
     class Weapon
     {
-        string type;
-        public int attackPower = 25;
+        public string type;
+        public int attackPower;
         public int powerCost;
         string attackType;
 
-        public Weapon()
+        public Weapon(string type, int attackPower, int powerCost)
         {
-
+            this.type = type;
+            this.attackPower = attackPower;
+            this.powerCost = powerCost;
         }
     }
 
