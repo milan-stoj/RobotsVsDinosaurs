@@ -53,7 +53,7 @@ namespace DinoRoboto
                     case "3":
                         return "Tyrannosaur";
                     default:
-                        Console.WriteLine("Not a valid selection! Input again: ");
+                        Console.Write("\nNot a valid selection! Input again: ");
                         input = Console.ReadLine();
                         break;
                 }

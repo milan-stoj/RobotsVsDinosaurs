@@ -9,24 +9,23 @@ namespace DinoRoboto
     class Herd
     {
         // Init member variables
-        Dinosaur[] dinoFleet;
+        List<Dinosaur> dinoHerd;
 
         public Herd()
         {
             Dinosaur dino1 = new Dinosaur("Dino #1");
             Dinosaur dino2 = new Dinosaur("Dino #2");
             Dinosaur dino3 = new Dinosaur("Dino #3");
-            dinoFleet = new Dinosaur[3] { dino1, dino2, dino3 };
-            PrintHerdInfo();
+            dinoHerd = new List<Dinosaur> { dino1, dino2, dino3 };
         }
 
         public void PrintHerdInfo()
         {
             Console.Clear();
-            Console.WriteLine($"Dinosaur Herd Info\n");
-            foreach (Dinosaur dino in dinoFleet)
+            Console.WriteLine($"Dinosaur Herd Info");
+            foreach (Dinosaur dino in dinoHerd)
             {
-                Console.WriteLine($"\n{dino.HerdTitle()}\n{dino.DinoType()}\n\n");
+                Console.WriteLine($"{dino.HerdTitle()}\n{dino.DinoType()}\n");
             }
         }
     }

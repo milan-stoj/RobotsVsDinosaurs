@@ -17,8 +17,10 @@ namespace DinoRoboto
         {
             PrintDinoTypes();
             dinoHerd = new Herd();
-            // print robo types.
+            dinoHerd.PrintHerdInfo();
+            PrintRoboTypes();
             robotFleet = new Fleet();
+            robotFleet.PrintFleetInfo();
         }
 
         private void PrintDinoTypes()
@@ -33,14 +35,10 @@ namespace DinoRoboto
                         =_ ~_  \\-~~~//~~~~-=-~
                          |-=-~_ \\   \\
                          |_/   =. )   ~}
-                         |}      ||
-                        //       ||
-                      _//        {{
-                   '='~'          \\_
-                                   ~~'
+                        _//        {{
+                     '='~'          \\_
                                         Health: 75
-                                   Power Level: 15
-";
+                                   Power Level: 15";
             Console.WriteLine(type1);
 
             string type2 = @"
@@ -48,19 +46,14 @@ namespace DinoRoboto
                        _. - ~ ~ ~ - .
    ..       __.    .-~               ~-.
    ((\     /   `}.~                     `.
-    \\\   {     }               /     \   \
 (\   \\~~       }              |       }   \
  \`.-~ -@~     }  ,-,.         |       )    \
  (___     ) _}  (    :        |    / /      `.
   `----._-~.     _\ \ |_       \   / /- _      `.
          ~~----~~  \ \| ~~--~~~(  + /     ~-.     ~- _
-                   /  /         \  \          ~- . _ _~_-_.
-                __/  /          _\  )
               .<___.'         .<___/
                                         Health: 125
-                                   Power Level: 5
-
-";
+                                   Power Level: 5";
             Console.WriteLine(type2);
             string type3 = @"
 [3] Tyrannosaur
@@ -68,7 +61,6 @@ namespace DinoRoboto
  ___                                      .-~    '.
 `-._~-.                                  / /  ~@\   )
      \  \                               | /  \~\.  `\
-     ]  |                              /  |  |< ~\(..)
     /   !                        _.--~T   \  \<   .,,
    /   /                 ____.--~ .    _  /~\ \< /
   /   /             .-~~'        /|   /o\ /-~\ \_|
@@ -77,8 +69,6 @@ namespace DinoRoboto
 /    l          /    \       ~~~|    `/ / / \.__/l_
 |     \     _.-'      ~-\__     l      /_/~-.___.--~
 |      ~---~           /   ~~'---\_    __[o,
-l  .                _.    ___     _>-/~
-\  \     .      .-~   .-~   ~>--'  /
  \  ~---'            /         _.-'
   '-.,_____.,_  _.--~\     _.-~
               ~~     (   _}
@@ -87,7 +77,58 @@ l  .                _.    ___     _>-/~
                  /,`--'~\--'~\
                                         Health: 100
                                    Power Level: 10
+";
+            Console.WriteLine(type3);
+        }
 
+        private void PrintRoboTypes()
+        {
+            Console.Clear();
+            string type1 = @"
+[1] PLS-15
+                      \_/
+                     (* *)
+                    __)#(__
+                   ( )...( )(_)
+                   || |_| ||//
+                >==() | | ()/
+                    _(___)_
+                   [-]   [-]
+                                        Health: 75
+                                   Power Level: 15";
+            Console.WriteLine(type1);
+
+            string type2 = @"
+[2] DS-125
+                   __,_,
+                  [_|_/ 
+                   //
+                 _//    __
+                (_|)   |@@|
+                 \ \__ \--/ __
+                  \o__|----|  |   __
+                      \ }{ /\ )_ / _\
+                      /\__/\ \__O (__
+                     (--/\--)    \__/
+                     _)(  )(_
+                    `---''---`
+                                        Health: 125
+                                   Power Level: 5";
+            Console.WriteLine(type2);
+            string type3 = @"
+[3] APH-100
+                        \_\
+                       (_**)
+                      __) #_
+                     ( )...()
+                     || | |I|
+                     || | |()__/
+                     /\(___)
+                    _-''''''''' -''- _
+                      -,,,,,,,,- ,,-
+
+                                          Health: 100
+                                   Power Level: 10
 ";
             Console.WriteLine(type3);
         }
