@@ -33,9 +33,7 @@ namespace DinoRoboto
                 dinoHerd.PrintHerdInfo();
                 robotFleet.PrintFleetInfo();
                 Console.WriteLine("Press enter to evaulate round");
-                Console.ReadLine();
                 AttackRound(dinoHerd, robotFleet);
-                Console.ReadLine();
                 if(dinoHerd.dinoHerd.Count() == 0)
                 {
                     winner = "ROBOTS WIN!!!";
