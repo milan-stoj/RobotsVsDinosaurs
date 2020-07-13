@@ -25,7 +25,7 @@ namespace DinoRoboto
             Console.WriteLine($"Robot Fleet Info");
             foreach (Robot robo in robotFleet)
             {
-                Console.WriteLine($"{robo.FleetTitle()}\n{robo.RoboType()}\n");
+                Console.WriteLine($"{robo.fleetTitle}\n{robo.name}\n");
             }
         }
     }

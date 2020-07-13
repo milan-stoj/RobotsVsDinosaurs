@@ -9,10 +9,10 @@ namespace DinoRoboto
     class Robot
     {
         // Init member variables
-        string name;
-        int health;
-        int powerLevel;
-        string fleetTitle;
+        public string name;
+        public int health;
+        public int powerLevel;
+        public string fleetTitle;
         Weapon weapon;
 
         public Robot(string fleetTitle)
@@ -60,17 +60,7 @@ namespace DinoRoboto
             }
         }
 
-        public string RoboType()
-        {
-            return name;
-        }
-
-        public string FleetTitle()
-        {
-            return fleetTitle;
-        }
-
-         public void AttackRobot(Herd dinoHerd, Weapon weapon)
+         public void AttackDino(Herd dinoHerd, Weapon weapon)
         {
             dinoHerd.GetDinoHerd().Count();
             Random random = new Random();

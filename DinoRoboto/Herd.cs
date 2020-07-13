@@ -25,7 +25,7 @@ namespace DinoRoboto
             Console.WriteLine($"Dinosaur Herd Info");
             foreach (Dinosaur dino in dinoHerd)
             {
-                Console.WriteLine($"{dino.HerdTitle()}\n{dino.DinoType()}\n");
+                Console.WriteLine($"{dino.herdTitle}\n{dino.type}\n");
             }
         }
 
