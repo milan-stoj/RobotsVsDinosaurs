@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace DinoRoboto
 {
-    class Program
+    class Robot
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
