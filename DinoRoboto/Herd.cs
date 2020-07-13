@@ -28,5 +28,10 @@ namespace DinoRoboto
                 Console.WriteLine($"{dino.HerdTitle()}\n{dino.DinoType()}\n");
             }
         }
+
+        public List<Dinosaur> GetDinoHerd()
+        {
+            return dinoHerd;
+        }
     }
 }

@@ -9,11 +9,11 @@ namespace DinoRoboto
     class Dinosaur
     {
         // Init member variables
-        string type;
-        int health;
-        int powerLevel;
+        public string type;
+        public int health;
+        public int powerLevel;
         string[] attackType;
-        string herdTitle;
+        public string herdTitle;
 
         public Dinosaur(string herdTitle)
         {
@@ -59,16 +59,5 @@ namespace DinoRoboto
                 }
             }
         }
-
-        public string DinoType()
-        {
-            return type;
-        }
-
-        public string HerdTitle()
-        {
-            return herdTitle;
-        }
-
     }
 }

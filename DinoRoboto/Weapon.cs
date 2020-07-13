@@ -9,8 +9,15 @@ namespace DinoRoboto
     class Weapon
     {
         string type;
-        int attackPower;
-        int powerCost;
+        public int attackPower = 25;
+        public int powerCost;
         string attackType;
+
+        public Weapon()
+        {
+
+        }
     }
+
+   
 }

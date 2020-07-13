@@ -70,9 +70,13 @@ namespace DinoRoboto
             return fleetTitle;
         }
 
-         public void AttackRobot(Herd dinoHerd)
+         public void AttackRobot(Herd dinoHerd, Weapon weapon)
         {
-            
+            dinoHerd.GetDinoHerd().Count();
+            Random random = new Random();
+            int index = random.Next(dinoHerd.GetDinoHerd().Count());
+            dinoHerd.GetDinoHerd()[index].health -= weapon.attackPower;
+            powerLevel -= weapon.powerCost;
         }
     }
 }
