@@ -19,7 +19,7 @@ namespace DinoRoboto
 
         public Robot(string fleetTitle)
         {
-            weapons = new Weapon[3] { new Weapon("Laser Pistol", 10, 5), new Weapon("Laser Cannon", 15, 5), new Weapon("Defense", 0, 0) };
+            weapons = new Weapon[3] { new Weapon("Laser Pistol", 10, 5), new Weapon("Laser Cannon", 20, 15), new Weapon("Defense", 0, -2) };
             this.fleetTitle = fleetTitle;
             name = SelectRobotType();
             switch (name)

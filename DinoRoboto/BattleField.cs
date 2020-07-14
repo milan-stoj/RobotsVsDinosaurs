@@ -17,35 +17,32 @@ namespace DinoRoboto
         {
             PrintDinoTypes();
             dinoHerd = new Herd();
-            dinoHerd.PrintHerdInfo();
             PrintRoboTypes();
             robotFleet = new Fleet();
-            robotFleet.PrintFleetInfo();
         }
 
         public void StartBattle()
         {
+            int roundCounter = 0;
             string winner;
             bool victor = false;
             while(victor == false)
             {
-                Console.Clear();
+                roundCounter++;
+                Console.WriteLine($"\n---------------- Round {roundCounter} ----------------");
                 dinoHerd.PrintHerdInfo();
                 robotFleet.PrintFleetInfo();
-                Console.WriteLine("Press enter to evaulate round");
                 AttackRound(dinoHerd, robotFleet);
                 if(dinoHerd.dinoHerd.Count() == 0)
                 {
-                    winner = "ROBOTS WIN!!!";
+                    winner = $"All dinosaurs eliminated in {roundCounter} Rounds! ROBOTS WIN!!!";
                     Console.WriteLine(winner);
-                    Console.ReadLine();
                     victor = true;
                 }
                 else if(robotFleet.robotFleet.Count() == 0)
                 {
                     winner = "DINOS WIN!!!";
                     Console.WriteLine(winner);
-                    Console.ReadLine();
                     victor = true;
                 }
             }
@@ -105,6 +102,7 @@ namespace DinoRoboto
                  /,`--'~\--'~\
                                         Health: 100
                                    Power Level: 10
+________________________________________________________
 ";
             Console.WriteLine(type3);
         }
@@ -157,6 +155,7 @@ namespace DinoRoboto
 
                                           Health: 100
                                    Power Level: 10
+________________________________________________________
 ";
             Console.WriteLine(type3);
         }

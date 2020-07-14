@@ -21,7 +21,7 @@ namespace DinoRoboto
 
         public void PrintHerdInfo()
         {
-            Console.WriteLine($"\n\nDinosaur Herd Info");
+            Console.WriteLine($"\n --- Dino Herd Info ---");
             foreach (Dinosaur dino in dinoHerd)
             {
                 Console.WriteLine($"{dino.herdTitle}\nSpecies: {dino.type}\nHealth: {dino.health}\nPower Level: {dino.powerLevel}\n");

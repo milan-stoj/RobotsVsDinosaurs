@@ -21,10 +21,10 @@ namespace DinoRoboto
 
         public void PrintFleetInfo()
         {
-            Console.WriteLine($"\n\nRobot Fleet Info");
+            Console.WriteLine($"\n --- Robot Fleet Status --- ");
             foreach (Robot robo in robotFleet)
             {
-                Console.WriteLine($"{robo.fleetTitle}\nName: {robo.name}\nHealth: {robo.health}\nPower Level:{robo.powerLevel}\n");
+                Console.WriteLine($"{robo.fleetTitle}\nName: {robo.name}\nHP: {robo.health}\nPOWER LEVEL:{robo.powerLevel}\n");
             }
         }
     }

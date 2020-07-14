@@ -12,8 +12,7 @@ namespace DinoRoboto
         {
             Title title = new Title();
             Console.WriteLine(title.title);
-            Console.WriteLine("Press enter to start a new battle!");
-            Console.ReadLine();
+            Console.ReadKey();
             
             BattleField NewBattlefield = new BattleField();
 
