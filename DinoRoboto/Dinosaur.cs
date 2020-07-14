@@ -14,59 +14,10 @@ namespace DinoRoboto
         public int powerLevel;
         public int powerRegen;
         Random random = new Random();
-        AttackType[] attacks;
+        public AttackType[] attacks;
         public string herdTitle;
 
-        public Dinosaur(string herdTitle)
-        {
-            this.herdTitle = herdTitle;
-            type = SelectDinosaurType();
-            switch (type)
-            {
-                case "Hypsilophodon":
-                    health = 75;
-                    powerLevel = 15;
-                    attacks = new AttackType[3] { new AttackType("Tail Whip", 15, 7), new AttackType("Base Attack", 5, 1), new AttackType("Defense", 0, -5)};
-                    powerRegen = 5;
-                    break;
 
-                case "Triceratops":
-                    health = 150;
-                    powerLevel = 3;
-                    attacks = new AttackType[3] { new AttackType("Horns", 5, 3), new AttackType("Base Attack", 5, 1), new AttackType("Defense", 0, -5) };
-                    powerRegen = 3;
-                    break;
-
-                case "Tyrannosaur":
-                    health = 100;
-                    powerLevel = 10;
-                    attacks = new AttackType[3] { new AttackType("Bite", 10, 5), new AttackType("Dash", 5, 1), new AttackType("Defense", 0, -5) };
-                    powerRegen = 3;
-                    break;
-            }
-        }
-
-        public string SelectDinosaurType()
-        {
-            Console.Write($"Please select the species of dinosaur for {herdTitle}: ");
-            string input = Console.ReadLine();
-            while (true)
-            {
-                switch (input)
-                {
-                    case "1":
-                        return "Hypsilophodon";
-                    case "2":
-                        return "Triceratops";
-                    case "3":
-                        return "Tyrannosaur";
-                    default:
-                        Console.Write("\nNot a valid selection! Input again: ");
-                        input = Console.ReadLine();
-                        break;
-                }
-            }
-        }
         public void AttackRobot(Fleet roboFleet, AttackType attack)
         {
             int index = random.Next(roboFleet.robotFleet.Count());

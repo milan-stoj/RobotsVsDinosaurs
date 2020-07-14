@@ -21,7 +21,7 @@ namespace DinoRoboto
 
         public void PrintFleetInfo()
         {
-            Console.WriteLine($"\n --- Robot Fleet Status --- ");
+            Console.WriteLine($"\n____________________________Fleet Status");
             foreach (Robot robo in robotFleet)
             {
                 Console.WriteLine($"{robo.fleetTitle}\nName: {robo.name}\nHP: {robo.health}\nPOWER LEVEL:{robo.powerLevel}\n");

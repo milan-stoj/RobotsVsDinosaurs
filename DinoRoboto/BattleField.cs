@@ -26,8 +26,9 @@ namespace DinoRoboto
             int roundCounter = 0;
             string winner;
             bool victor = false;
-            while(victor == false)
+            while(true)
             {
+                Console.ReadLine();
                 roundCounter++;
                 Console.WriteLine($"\n---------------- Round {roundCounter} ----------------");
                 dinoHerd.PrintHerdInfo();
@@ -35,14 +36,17 @@ namespace DinoRoboto
                 AttackRound(dinoHerd, robotFleet);
                 if(dinoHerd.dinoHerd.Count() == 0)
                 {
-                    winner = $"All dinosaurs eliminated in {roundCounter} Rounds! ROBOTS WIN!!!";
+                    winner = $"\n\n -------- All dinosaurs eliminated in {roundCounter} Rounds! ROBOTS WIN!!! -------- ";
                     Console.WriteLine(winner);
-                    victor = true;
+                    Console.ReadLine();
+                    break;
+
                 }
                 else if(robotFleet.robotFleet.Count() == 0)
                 {
-                    winner = "DINOS WIN!!!";
+                    winner = $"\n\n All robots eliminated in {roundCounter} Rounds! DINOS WIN!!!";
                     Console.WriteLine(winner);
+                    Console.ReadLine();
                     victor = true;
                 }
             }
