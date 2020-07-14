@@ -40,7 +40,8 @@ namespace DinoRoboto
             }
         }
 
-
+        // selects a weapon to use from each robo's weapon array
+        // based on the selecting robo's power level.
         public Weapon SelectWeapon()
         {
             int bestAttackPower = 0;

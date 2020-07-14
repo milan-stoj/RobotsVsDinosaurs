@@ -9,6 +9,8 @@ namespace DinoRoboto
 {
     class BattleField
     {
+        // Member variables of battlefield. Battlefield contains a 
+        // herd and a fleet to perform battle.
         Herd dinoHerd;
         Fleet robotFleet;
         Title title;
@@ -16,31 +18,31 @@ namespace DinoRoboto
         //Constructor
         public BattleField()
         {
-            title = new Title();
-            PrintDinoTypes();
-            dinoHerd = new Herd();
-            PrintRoboTypes();
-            robotFleet = new Fleet();
+            title = new Title();       
+            PrintDinoTypes();           // Print dino types to selection screen
+            dinoHerd = new Herd();      // Instantiate new Herd
+            PrintRoboTypes();           // Print robo types to selection screen
+            robotFleet = new Fleet();   // Instantiate new Fleet
         }
 
         public void StartBattle()
         {
-            int roundCounter = 0;
-            string winner;
+            int roundCounter = 0;       // Counter for number of rounds elapsed
+            string winner;              // String to store winnner declaration
             Console.Clear();
-            Console.WriteLine(title.BattleTitle());
             while(true)
             {
                 Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine(title.BattleTitle());
-                roundCounter++;
-                dinoHerd.PrintHerdInfo();
+                Console.WriteLine(title.BattleTitle());     // Print battle header to screen
+                roundCounter++;         
+                // Print herd and fleet status
+                dinoHerd.PrintHerdInfo();       
                 robotFleet.PrintFleetInfo();
 
                 Console.WriteLine($"+------------------------------+\n|        Round {roundCounter} Results       |\n+------------------------------+");
                 DinoAttackRound(dinoHerd);
-                if(robotFleet.robotFleet.Count() == 0)
+                if(robotFleet.robotFleet.Count() == 0)      // If fleet count reaches 0 - dinos win.
                 {
                     winner = $"\n\n All robots eliminated in {roundCounter} Rounds! DINOS WIN!!!";
                     Console.WriteLine(winner);
@@ -50,7 +52,7 @@ namespace DinoRoboto
                 }
 
                 RoboAttackRound(robotFleet);
-                if(dinoHerd.dinoHerd.Count() == 0)
+                if(dinoHerd.dinoHerd.Count() == 0)          // If herd count reaches 0 - robos win.
                 {
                     winner = $"\n\n -------- All dinosaurs eliminated in {roundCounter} Rounds! ROBOTS WIN!!! -------- ";
                     Console.WriteLine(winner);
