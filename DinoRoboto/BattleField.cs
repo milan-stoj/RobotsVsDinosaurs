@@ -11,10 +11,12 @@ namespace DinoRoboto
     {
         Herd dinoHerd;
         Fleet robotFleet;
+        Title title;
 
         //Constructor
         public BattleField()
         {
+            title = new Title();
             PrintDinoTypes();
             dinoHerd = new Herd();
             PrintRoboTypes();
@@ -25,29 +27,37 @@ namespace DinoRoboto
         {
             int roundCounter = 0;
             string winner;
-            bool victor = false;
+            Console.Clear();
+            Console.WriteLine(title.BattleTitle());
             while(true)
             {
                 Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine(title.BattleTitle());
                 roundCounter++;
-                Console.WriteLine($"\n---------------- Round {roundCounter} ----------------");
                 dinoHerd.PrintHerdInfo();
                 robotFleet.PrintFleetInfo();
-                AttackRound(dinoHerd, robotFleet);
+
+                Console.WriteLine($"+------------------------------+\n|        Round {roundCounter} Results      |\n+------------------------------+");
+                DinoAttackRound(dinoHerd);
+                if(robotFleet.robotFleet.Count() == 0)
+                {
+                    winner = $"\n\n All robots eliminated in {roundCounter} Rounds! DINOS WIN!!!";
+                    Console.WriteLine(winner);
+                    Console.WriteLine(dinoHerd.HerdWin());
+                    Console.ReadLine();
+                    break;
+                }
+
+                RoboAttackRound(robotFleet);
                 if(dinoHerd.dinoHerd.Count() == 0)
                 {
                     winner = $"\n\n -------- All dinosaurs eliminated in {roundCounter} Rounds! ROBOTS WIN!!! -------- ";
                     Console.WriteLine(winner);
+                    Console.WriteLine(robotFleet.FleetWin());
                     Console.ReadLine();
                     break;
 
-                }
-                else if(robotFleet.robotFleet.Count() == 0)
-                {
-                    winner = $"\n\n All robots eliminated in {roundCounter} Rounds! DINOS WIN!!!";
-                    Console.WriteLine(winner);
-                    Console.ReadLine();
-                    victor = true;
                 }
             }
         }
@@ -115,48 +125,63 @@ ________________________________________________________
         {
             Console.Clear();
             string type1 = @"
-[1] PLS-15
-                      \_/
-                     (* *)
-                    __)#(__
-                   ( )...( )(_)
-                   || |_| ||//
-                >==() | | ()/
-                    _(___)_
-                   [-]   [-]
+[1] R2-D2
+                      .=.
+                     '==c|
+                     [)-+|
+                     //'_|
+                    /]==;\             
                                         Health: 75
                                    Power Level: 15";
             Console.WriteLine(type1);
 
             string type2 = @"
-[2] DS-125
-                   __,_,
-                  [_|_/ 
-                   //
-                 _//    __
-                (_|)   |@@|
-                 \ \__ \--/ __
-                  \o__|----|  |   __
-                      \ }{ /\ )_ / _\
-                      /\__/\ \__O (__
-                     (--/\--)    \__/
-                     _)(  )(_
-                    `---''---`
+[2] Protectron
+                    _-=-_
+                   /     \
+                  /   (=) \
+                 /_  o |  _\
+                /  \=|=|=/  \
+               /   |=|=*=|   \
+              /\   |=+=|=|   /\
+              |\    \|_|/    /|
+             /\               /\
+          __/  \             /  \__
+        _   _   \    ===    /   _   _
+       /     \   \__/   \__/   /     \
+      /__    |                 |    __\
+      |  \__/   - - - - - - -   \__/  |
+       \____/\       ====       /\____/
+       <____> \     /____\     / <____>
+       <____>  \   /______\   /  <____>
+      <____>    \_/<______>\_/    <____>
+      <____>       <______>       <____>
+      /    \    _-_<______>_-_    /    \
+     /     |   /   /      \   \   |     \
+     |o    |   ====\      /====   |    o|
+     |     |   \   /\____/\   /   |     |
+     \==== /   |___|      |___|   \ ====/
+      \___/    <___>      <___>    \___/
+      ( ( )    <___>      <___>     ( |)
+               <___>      <___>
+            
                                         Health: 125
                                    Power Level: 5";
             Console.WriteLine(type2);
             string type3 = @"
-[3] APH-100
-                        \_\
-                       (_**)
-                      __) #_
-                     ( )...()
-                     || | |I|
-                     || | |()__/
-                     /\(___)
-                    _-''''''''' -''- _
-                      -,,,,,,,,- ,,-
-
+[3] T-800
+                   <((((((\\\
+                   /      . }\
+                   ;--..--._|}
+(\                 '--/\--'  )
+ \\                | '-'  :'|
+  \\               . -==- .-|
+   \\               \.__.'   \--._
+   [\\          __.--|       //  _/'--.
+   \ \\       .'-._ ('-----'/ __/      \
+    \ \\     /   __>|      | '--.       |
+     \ \\   |   \   |     /    /       /
+      \ '\ /     \  |     |  _/       /
                                           Health: 100
                                    Power Level: 10
 ________________________________________________________
@@ -164,14 +189,17 @@ ________________________________________________________
             Console.WriteLine(type3);
         }
 
-        public void AttackRound(Herd dinoHerd, Fleet robotFleet)
+        public void DinoAttackRound(Herd dinoHerd)
         {
             foreach (Dinosaur dino in dinoHerd.dinoHerd)
             {
-                
                 dino.AttackRobot(robotFleet, dino.SelectAttack());
             }
+        }
 
+
+        public void RoboAttackRound(Fleet robotFleet)
+        {
             foreach (Robot robo in robotFleet.robotFleet)
             {
                 robo.AttackDino(dinoHerd, robo.SelectWeapon());

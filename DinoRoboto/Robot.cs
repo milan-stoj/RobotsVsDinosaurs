@@ -17,31 +17,9 @@ namespace DinoRoboto
         public string fleetTitle;
         Weapon[] weapons;
 
-        public Robot(string fleetTitle)
+        public Robot()
         {
             weapons = new Weapon[3] { new Weapon("Laser Pistol", 10, 5), new Weapon("Laser Cannon", 20, 15), new Weapon("Defense", 0, -2) };
-            this.fleetTitle = fleetTitle;
-            name = SelectRobotType();
-            switch (name)
-            {
-                case "PLS-15":
-                    health = 75;
-                    powerLevel = 15;
-                    powerRegen = 5;
-                    break;
-
-                case "DS-125":
-                    health = 150;
-                    powerLevel = 3;
-                    powerRegen = 1;
-                    break;
-
-                case "APH-100":
-                    health = 100;
-                    powerLevel = 10;
-                    powerRegen = 2;
-                    break;
-            }
         }
 
         

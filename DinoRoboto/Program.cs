@@ -10,8 +10,9 @@ namespace DinoRoboto
     {
         static void Main(string[] args)
         {
+            Console.WindowHeight = 60;
             Title title = new Title();
-            Console.WriteLine(title.title);
+            Console.WriteLine(title.MainTitle());
             Console.ReadKey();
             
             BattleField NewBattlefield = new BattleField();

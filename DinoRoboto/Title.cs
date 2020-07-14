@@ -8,11 +8,10 @@ namespace DinoRoboto
 {
     class Title
     {
-        public string title;
-
-        public Title()
+       
+        public string MainTitle()
         {
-            title = @"
+            return @"
 
               [_|_/                                                  /~~~~~~~~~~~~\_
                //                                _+=+_             _[~  /~~~~~~~~~~~~\_
@@ -37,5 +36,21 @@ namespace DinoRoboto
                                    ----- Press Any key to Continue ------
 ";
         }
+
+        public string BattleTitle()
+        {
+            return @"                                                                  
+                _____ _              ___       _   _   _          ___            _              _ 
+               /__   \ |__   ___    / __\ __ _| |_| |_| | ___    / __\ ___  __ _(_)_ __  ___   / \
+                 / /\/ '_ \ / _ \  /__\/// _` | __| __| |/ _ \  /__\/// _ \/ _` | | '_ \/ __| /  /
+                / /  | | | |  __/ / \/  \ (_| | |_| |_| |  __/ / \/  \  __/ (_| | | | | \__ \/\_/ 
+                \/   |_| |_|\___| \_____/\__,_|\__|\__|_|\___| \_____/\___|\__, |_|_| |_|___/\/   
+                                                                           |___/                  
+
+      ----------- Press enter to evaluate rounds. Fleet & Herd status printed as the battle progresses. ------------
+
+";
+        }
+
     }
 }
