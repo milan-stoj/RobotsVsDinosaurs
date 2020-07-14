@@ -31,7 +31,7 @@ namespace DinoRoboto
                         break;
 
                     case "Tyrannosaur":
-                        dinoHerd[i] = new Triceratops($"Dino #{i + 1}");
+                        dinoHerd[i] = new Tyrannosaur($"Dino #{i + 1}");
                         break;
                 }
             }

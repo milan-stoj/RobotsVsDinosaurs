@@ -15,7 +15,7 @@ namespace DinoRoboto
             this.herdTitle = herdTitle;
             health = 100;
             powerLevel = 10;
-            attacks = new AttackType[3] { new AttackType("Bite", 10, 5), new AttackType("Dash", 5, 1), new AttackType("Defense", 0, -5) };
+            attacks = new AttackType[3] { new AttackType("Bite", 5, 1), new AttackType("Head Slam", 15, 20), new AttackType("Roar", 0, -5) };
             powerRegen = 3;
         }
     }

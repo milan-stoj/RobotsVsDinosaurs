@@ -38,7 +38,7 @@ namespace DinoRoboto
                 dinoHerd.PrintHerdInfo();
                 robotFleet.PrintFleetInfo();
 
-                Console.WriteLine($"+------------------------------+\n|        Round {roundCounter} Results      |\n+------------------------------+");
+                Console.WriteLine($"+------------------------------+\n|        Round {roundCounter} Results       |\n+------------------------------+");
                 DinoAttackRound(dinoHerd);
                 if(robotFleet.robotFleet.Count() == 0)
                 {

@@ -10,7 +10,7 @@ namespace DinoRoboto
     {
         static void Main(string[] args)
         {
-            Console.WindowHeight = 60;
+            Console.WindowHeight = 65;
             Title title = new Title();
             Console.WriteLine(title.MainTitle());
             Console.ReadKey();

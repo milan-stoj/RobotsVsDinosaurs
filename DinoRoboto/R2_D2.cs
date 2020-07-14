@@ -13,8 +13,10 @@ namespace DinoRoboto
             this.fleetTitle = fleetTitle;
             name = "R2-D2";
             health = 75;
-            powerLevel = 15;
-            powerRegen = 5;
+            powerLevel = 5;
+            powerRegen = 3;
+            weapons = new Weapon[3] { new Weapon("Shock", 10, 4), new Weapon("Blaster Beam", 15, 7), new Weapon("WOOooOOOOoooOOoohhh!", 0, 0) };
+
         }
     }
 }

@@ -8,61 +8,38 @@ namespace DinoRoboto
 {
     class Robot
     {
-        // Init member variables
+        // Init member variables - variables assigned 
+        // in the child-robo constructors.
+
         Random random = new Random();
-        public string name;
-        public int health;
-        public int powerLevel;
-        public int powerRegen;
-        public string fleetTitle;
-        Weapon[] weapons;
+        public string name;             // name of robot
+        public int health;              // starting health of robot
+        public int powerLevel;          // stamina/energy used for attacking
+        public int powerRegen;          // per-attack round power added to total power level
+        public string fleetTitle;       // index name of robot in fleet list
+        public Weapon[] weapons;        // weapons array usable by each robot
 
-        public Robot()
-        {
-            weapons = new Weapon[3] { new Weapon("Laser Pistol", 10, 5), new Weapon("Laser Cannon", 20, 15), new Weapon("Defense", 0, -2) };
-        }
-
-        
-        // Returns a robot name value, that is then switch-cased
-        // in the constructor to assign respective health/power-levels.
-        public string SelectRobotType()
-        {
-            Console.Write($"Please select the type of robot for {fleetTitle}: ");
-            string input = Console.ReadLine();
-            while (true)
-            {
-                switch (input)
-                {
-                    case "1":
-                        return "PLS-15";
-                    case "2":
-                        return "DS-125";
-                    case "3":
-                        return "APH-100";
-                    default:
-                        Console.Write("\nNot a valid selection! Input again: ");
-                        input = Console.ReadLine();
-                        break;
-                }
-            }
-        }
 
         // Targets a random dino from the herd, and reduces dino health
         // by weapon damage. Attacker power level reduced by weapon 
         // power cost.
         public void AttackDino(Herd dinoHerd, Weapon weapon)
         {
-            int index = random.Next(dinoHerd.dinoHerd.Count());
-            dinoHerd.dinoHerd[index].health -= weapon.attackPower;
-            Console.WriteLine($"{fleetTitle} uses {weapon.type} against {dinoHerd.dinoHerd[index].herdTitle} for {weapon.attackPower} damage!");
-            if (dinoHerd.dinoHerd[index].health <= 0)
+            if (dinoHerd.dinoHerd.Count() > 0)
             {
-                Console.WriteLine($"-----{dinoHerd.dinoHerd[index].herdTitle} has been eliminated!!!-----");
-                dinoHerd.dinoHerd.RemoveAt(index);
+                int index = random.Next(dinoHerd.dinoHerd.Count());
+                dinoHerd.dinoHerd[index].health -= weapon.attackPower;
+                Console.WriteLine($"{fleetTitle} uses {weapon.type} against {dinoHerd.dinoHerd[index].herdTitle} for {weapon.attackPower} damage!");
+                if (dinoHerd.dinoHerd[index].health <= 0)
+                {
+                    Console.WriteLine($"-----{dinoHerd.dinoHerd[index].herdTitle} has been eliminated!!!-----");
+                    dinoHerd.dinoHerd.RemoveAt(index);
+                }
+                powerLevel -= weapon.powerCost;
+                powerLevel += powerRegen;
             }
-            powerLevel -= weapon.powerCost;
-            powerLevel += powerRegen;
         }
+
 
         public Weapon SelectWeapon()
         {

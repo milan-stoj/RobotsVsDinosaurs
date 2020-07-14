@@ -14,7 +14,7 @@ namespace DinoRoboto
             type = "Hypsilophodon";
             health = 75;
             powerLevel = 15;
-            attacks = new AttackType[3] { new AttackType("Tail Whip", 15, 7), new AttackType("Base Attack", 5, 1), new AttackType("Defense", 0, -5) };
+            attacks = new AttackType[3] { new AttackType("Tail Whip", 5, 6), new AttackType("Bite", 5, 1), new AttackType("Sprint", 0, -5) };
             powerRegen = 5;
         }
     }

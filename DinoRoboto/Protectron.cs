@@ -15,8 +15,8 @@ namespace DinoRoboto
             name = "Protectron";
             health = 150;
             powerLevel = 3;
-            powerRegen = 1;
-
+            powerRegen = 5;
+            weapons = new Weapon[3] { new Weapon("9mm", 5, 6), new Weapon("Laser Cannon", 12, 10), new Weapon("Stand back, citizen!", 3, -5) };
         }
         
         

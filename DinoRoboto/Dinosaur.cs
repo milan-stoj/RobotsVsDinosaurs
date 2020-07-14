@@ -8,30 +8,40 @@ namespace DinoRoboto
 {
     class Dinosaur
     {
-        // Init member variables
-        public string type;
-        public int health;
-        public int powerLevel;
-        public int powerRegen;
-        Random random = new Random();
-        public AttackType[] attacks;
-        public string herdTitle;
+        // Init member variables - variables assigned 
+        // in the child-dino constructors.
+
+        public string type;             // type/species of dino
+        public int health;              // starting dino health
+        public int powerLevel;          // starting power level of dino
+        public int powerRegen;          // power regen of dino
+        Random random = new Random();   // random num generator
+        public AttackType[] attacks;    // array of possible dino attacks
+        public string herdTitle;        // index name of dino in the herd
 
 
+        // Targets a random robot from the fleet, and reduces dino health
+        // by attack damage. Attacker power level reduced by attack 
+        // power cost.
         public void AttackRobot(Fleet roboFleet, AttackType attack)
         {
             int index = random.Next(roboFleet.robotFleet.Count());
-            roboFleet.robotFleet[index].health -= attack.attackPower;
-            Console.WriteLine($"{herdTitle} uses {attack.type} against {roboFleet.robotFleet[index].fleetTitle} for {attack.attackPower} damage!");
-            if (roboFleet.robotFleet[index].health <= 0)
+            if (roboFleet.robotFleet.Count() > 0)
             {
-                Console.WriteLine($"-----{roboFleet.robotFleet[index].fleetTitle} has been eliminated!!!-----");
-                roboFleet.robotFleet.RemoveAt(index);
+                roboFleet.robotFleet[index].health -= attack.attackPower;
+                Console.WriteLine($"{herdTitle} uses {attack.type} against {roboFleet.robotFleet[index].fleetTitle} for {attack.attackPower} damage!");
+                if (roboFleet.robotFleet[index].health <= 0)
+                {
+                    Console.WriteLine($"-----{roboFleet.robotFleet[index].fleetTitle} has been eliminated!!!-----");
+                    roboFleet.robotFleet.RemoveAt(index);
+                }
+                powerLevel -= attack.powerCost;
+                powerLevel += powerRegen;
             }
-            powerLevel -= attack.powerCost;
-            powerLevel += powerRegen;
         }
 
+        // selects an attack to perform from the attacks array
+        // based on the selecting dino's power level. 
         public AttackType SelectAttack()
         {
             int bestAttackPower = 0;
