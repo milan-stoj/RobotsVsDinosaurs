@@ -27,22 +27,22 @@ namespace DinoRoboto
 
         public void StartBattle()
         {
+            Console.Clear();
             int roundCounter = 0;       // Counter for number of rounds elapsed
             string winner;              // String to store winnner declaration
-            Console.Clear();
-            while(true)
+            Console.WriteLine(title.BattleTitle()); // Print battle header to screen
+            Console.ReadLine();
+            while (true)
             {
-                Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine(title.BattleTitle());     // Print battle header to screen
-                roundCounter++;         
+                Console.WriteLine(title.BattleTitle()); // Print battle header to screen
+                roundCounter++;
                 // Print herd and fleet status
                 dinoHerd.PrintHerdInfo();       
                 robotFleet.PrintFleetInfo();
-
                 Console.WriteLine($"+------------------------------+\n|        Round {roundCounter} Results       |\n+------------------------------+");
                 DinoAttackRound(dinoHerd);
-                if(robotFleet.robotFleet.Count() == 0)      // If fleet count reaches 0 - dinos win.
+                if (robotFleet.robotFleet.Count() == 0)      // If fleet count reaches 0 - dinos win.
                 {
                     winner = $"\n\n All robots eliminated in {roundCounter} Rounds! DINOS WIN!!!";
                     Console.WriteLine(winner);
@@ -61,6 +61,7 @@ namespace DinoRoboto
                     break;
 
                 }
+                Console.ReadLine();
             }
         }
 
